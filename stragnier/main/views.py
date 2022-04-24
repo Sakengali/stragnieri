@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Yep")
+
+def get_url(request, url_val):
+    return HttpResponse(f'url is {url_val}')

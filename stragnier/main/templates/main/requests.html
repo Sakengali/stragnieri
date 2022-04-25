@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    requests here
+    <table>
+        <tr>
+            <th>book name</th>
+            <th>book url</th>
+            <th>resp</th>
+        </tr>
+
+        {% for request in requests_info %}
+            <tr>
+                <td>{{request.book_name}}</td>
+                <td>{{request.book_url}}</td>    <!-- dict's values are taken via . sntx-->
+                <td>
+                    <form>
+                        <input type="submit" value="respond">
+                    </form>
+            </td>
+            </tr>
+        {%empty%}
+            No requests
+        {%endfor%}
+    </table>
+{% endblock %}

@@ -6,7 +6,8 @@ app_name = "main"
 
 urlpatterns=[
     path('', views.index, name='index'),
-    path('requests', views.requests, name='requests') 
+    path('requests', views.requests, name='requests') ,
+    path('responds', views.responds, name='responds')
 ]
 
 

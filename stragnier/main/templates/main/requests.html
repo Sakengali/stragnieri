@@ -1,4 +1,12 @@
 {% extends "layout.html" %}
+{% block head %}
+    <style>
+        td{
+            position: center;
+        }
+    </style>
+{%endblock%}
+
 
 {% block body %}
     requests here
@@ -6,6 +14,7 @@
         <tr>
             <th>book name</th>
             <th>book url</th>
+            <th>inquirer location</th>
             <th>resp</th>
         </tr>
 
@@ -13,11 +22,13 @@
             <tr>
                 <td>{{request.book_name}}</td>
                 <td>{{request.book_url}}</td>    <!-- dict's values are taken via . sntx-->
+                <td>{{request.user_city}}</td>
                 <td>
-                    <form>
+                    <form action="{% url 'main:responds' %}" method="post">
+                        {% csrf_token %}
                         <input type="submit" value="respond">
                     </form>
-            </td>
+                </td>
             </tr>
         {%empty%}
             No requests
